@@ -4,11 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
@@ -105,6 +103,12 @@ public class FeiginTestController {
         String name=String.valueOf(params.get("name"));
         logger.info("testUri6 => name => {}",name);
         return "testURI6  "+name;
+    }
+
+    @PostMapping(value = "/sendByForm",consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @ResponseBody
+    String sendByForm(@RequestHeader Map<String,Object>header,@RequestParam  Map<String,Object> params){
+        return "form请求结果\n header => "+JSON.toJSONString(header)+"\n params => "+JSON.toJSONString(params);
     }
 
     /**

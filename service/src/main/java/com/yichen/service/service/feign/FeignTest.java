@@ -1,9 +1,13 @@
 package com.yichen.service.service.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.awt.*;
 import java.net.URI;
 import java.util.Map;
 
@@ -55,6 +59,12 @@ public interface FeignTest {
      */
     @RequestMapping
     String testURI6(URI url,Map<String, Object> params);
+
+    /**
+     * 通过表单提交数据
+     */
+    @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    String sendByForm(URI url,@RequestHeader Map<String,Object>header, @RequestParam Map<String,Object> params);
 
 
 }

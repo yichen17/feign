@@ -5,14 +5,13 @@ import com.yichen.service.service.feign.FeignTest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -89,6 +88,18 @@ public class FeignTestController {
         params.put("age",20);
         params.put("sex","girl");
         return feignTest.testURI6(new URI("http://localhost:8088/feign/testUri6"),params);
+    }
+
+    @GetMapping("/sendByForm")
+    public String sendByForm(@RequestParam("name")String name) throws URISyntaxException {
+        System.out.println("name => "+name);
+        Map<String,Object> params=new HashMap<>();
+        params.put("age",20);
+        params.put("sex","girl");
+        Map<String,Object> header=new HashMap<>();
+        header.put("token","reqre13423423");
+        header.put("customerId","1000007421");
+        return feignTest.sendByForm(new URI("http://localhost:8088/feign/sendByForm"),header,params);
     }
 
 
