@@ -7,7 +7,6 @@
 		<artifactId>base</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>com.yichen</groupId>
 	<artifactId>test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>test</name>
@@ -56,6 +55,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- eureka 客户端-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<!-- end -->
+
 	</dependencies>
 
 	<build>

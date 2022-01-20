@@ -47,7 +47,7 @@ public class HytrixController {
     @ResponseBody
     public String get(){
 
-
+        System.out.println("当前线程 "+Thread.currentThread().getName());
         System.out.println(">>> arrive");
         String value=testFeign.get();
         System.out.println(">>> leave");
