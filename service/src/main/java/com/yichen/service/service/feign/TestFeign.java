@@ -1,5 +1,6 @@
 package com.yichen.service.service.feign;
 
+import com.yichen.service.model.DataTransform;
 import com.yichen.service.model.ParamFromStreamDto;
 import com.yichen.service.service.defaultImpl.TestFeignImpl;
 import com.yichen.service.service.factory.TestHystrixFactory;
@@ -40,5 +41,9 @@ public interface TestFeign {
      */
     @RequestMapping(value = "/paramStream1",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     String paramStream1(@RequestBody ParamFromStreamDto reqString);
+
+    @RequestMapping(value = "jsonParser")
+    DataTransform jsonParser();
+
 
 }

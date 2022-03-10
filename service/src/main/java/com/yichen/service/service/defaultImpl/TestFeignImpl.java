@@ -1,5 +1,6 @@
 package com.yichen.service.service.defaultImpl;
 
+import com.yichen.service.model.DataTransform;
 import com.yichen.service.model.ParamFromStreamDto;
 import com.yichen.service.service.feign.TestFeign;
 import org.springframework.stereotype.Component;
@@ -30,5 +31,10 @@ public class TestFeignImpl implements TestFeign {
     @Override
     public String paramStream1(ParamFromStreamDto reqString) {
         return "this interface is block";
+    }
+
+    @Override
+    public DataTransform jsonParser() {
+        return null;
     }
 }

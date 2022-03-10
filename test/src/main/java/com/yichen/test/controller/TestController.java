@@ -1,6 +1,7 @@
 package com.yichen.test.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.yichen.test.model.DataTransform;
 import com.yichen.test.model.ParamFromStreamDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,6 +55,13 @@ public class TestController {
         logger.info("dto {}",dto);
         return dto.toString();
     }
+
+    @RequestMapping("/jsonParser")
+    @ResponseBody
+    public DataTransform jsonParser(){
+        return DataTransform.builder().name("yichen").id(10000000L).build();
+    }
+
 
 
     private String getReqString(HttpServletRequest request) {

@@ -3,6 +3,7 @@ package com.yichen.service.controller;
 import com.alibaba.fastjson.JSON;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import com.yichen.service.model.DataTransform;
 import com.yichen.service.model.ParamFromStreamDto;
 import com.yichen.service.service.feign.TestFeign;
 import feign.Feign;
@@ -93,5 +94,12 @@ public class HytrixController {
         System.out.println(">>> leave");
         return value;
     }
+
+    @RequestMapping("/jsonParser")
+    @ResponseBody
+    public DataTransform jsonParser(){
+        return testFeign.jsonParser();
+    }
+
 
 }
