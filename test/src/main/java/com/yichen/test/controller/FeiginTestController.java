@@ -31,8 +31,8 @@ public class FeiginTestController {
      */
     @RequestMapping("/testUri")
     @ResponseBody
-    public String testUri(String name){
-        logger.info("testUri => name => {}",name);
+    public String testUri(@RequestParam("loginSource") String loginSource, String name){
+        logger.info("testUri => loginSource {}, name => {}", loginSource, name);
         return "testURI "+name;
     }
 
@@ -134,6 +134,13 @@ public class FeiginTestController {
         }
         logger.info("getJsonParam => {}", JSON.toJSONString(jsonParam));
         return jsonParam;
+    }
+
+    @RequestMapping("/testPutHeader")
+    @ResponseBody
+    public String testPutHeader(@RequestHeader(name = "loginSource", required = false) String loginSource){
+        logger.info("testPutHeader loginSource {}", loginSource);
+        return "ok";
     }
 
 }

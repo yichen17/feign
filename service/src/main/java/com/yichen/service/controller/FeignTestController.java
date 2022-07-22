@@ -102,6 +102,10 @@ public class FeignTestController {
         return feignTest.sendByForm(new URI("http://localhost:8088/feign/sendByForm"),header,params);
     }
 
+    @GetMapping("/testPutHeader")
+    public String testPutHeader() throws URISyntaxException{
+        return feignTest.testPutHeader(new URI("http://localhost:8088/feign/testPutHeader"));
+    }
 
 
 }

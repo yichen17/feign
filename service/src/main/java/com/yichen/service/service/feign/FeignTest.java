@@ -66,5 +66,10 @@ public interface FeignTest {
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     String sendByForm(URI url,@RequestHeader Map<String,Object>header, @RequestParam Map<String,Object> params);
 
+    /**
+     * 测试通过 RequestInterceptor  置入请求头
+     */
+    @PostMapping
+    String testPutHeader(URI url);
 
 }
