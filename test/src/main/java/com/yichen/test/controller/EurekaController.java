@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class EurekaController {
 
     @RequestMapping("/get")
-    public String eureka(){
+    public String eureka() throws Exception{
+        Thread.sleep(1500);
         return "get request by eureka";
     }
 
