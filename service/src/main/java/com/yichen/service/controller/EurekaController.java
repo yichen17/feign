@@ -1,8 +1,9 @@
 package com.yichen.service.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.yichen.service.model.DataTransform;
 import com.yichen.service.service.feign.EurekaFeign;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -22,6 +23,16 @@ public class EurekaController {
     @RequestMapping("/get")
     public String eureka(){
         return eurekaFeign.eureka();
+    }
+
+    @PostMapping("/formTest")
+    public String formTest(@RequestParam String proId){
+        return eurekaFeign.formTest(proId);
+    }
+
+    @PostMapping("/json")
+    public String formTest(@RequestBody DataTransform dataTransform){
+        return eurekaFeign.json(dataTransform);
     }
 
 }
